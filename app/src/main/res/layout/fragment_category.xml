@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical"
     tools:context=".CategoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<<<<<<< HEAD
+    <Button
+        android:id="@+id/btn_move_ipa"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="IPA"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="16dp"/>
+=======
+    <ListView
+        android:id="@+id/list_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+>>>>>>> dcd4bbabcf8323d839f15d5bf9c73b73e6a092dc
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_move_ips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="IPS"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="16dp"/>
+
+</LinearLayout>

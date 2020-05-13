@@ -9,9 +9,9 @@
         android:icon="@android:drawable/ic_menu_search"
         android:title="Search" />
     <item
-        android:id="@+id/action_akun"
+        android:id="@+id/profil"
         android:title="Profil" />
     <item
-        android:id="@+id/action_logout"
+        android:id="@+id/logout"
         android:title="Logout" />
 </menu>
