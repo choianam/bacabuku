@@ -13,6 +13,6 @@ public class IpaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ipa);
 
         TextView title = (TextView) findViewById(R.id.activityTitleIpa);
-        title.setText("Home");
+        title.setText("IPA");
     }
 }

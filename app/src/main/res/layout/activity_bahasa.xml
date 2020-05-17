@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".BahasaActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:textSize="30sp"
+            android:id="@+id/activityTitleBahasa"
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
