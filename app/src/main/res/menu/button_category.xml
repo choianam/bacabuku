@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/btn_ipa"
+        android:title="IPA" />
+    <item android:id="@+id/btn_ips"
+        android:title="IPS" />
+    <item android:id="@+id/btn_bahasa"
+        android:title="BAHASA" />
+    <item android:id="@+id/btn_umum"
+        android:title="UMUM" />
+    <item android:id="@+id/btn_lainnya"
+        android:title="LAINNYA" />
+
+</menu>
