@@ -94,22 +94,22 @@
                             android:textSize="15dp" />
 
                         <TextView
-                            android:id="@+id/hargaBarang"
+                            android:id="@+id/namapenulis"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="210dp"
                             android:layout_marginLeft="20dp"
-                            android:text="Rp 000000"
+                            android:text="Jonny Tisman"
                             android:textColor="@color/colorPrimary"
                             android:textSize="20dp" />
 
                         <TextView
-                            android:id="@+id/waktuLelang"
+                            android:id="@+id/tahunterbit"
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
                             android:layout_marginTop="245dp"
                             android:layout_marginLeft="20dp"
-                            android:text="24-04-2000/10.00"
+                            android:text="2011"
                             android:textSize="17dp" />
 
                     </FrameLayout>
