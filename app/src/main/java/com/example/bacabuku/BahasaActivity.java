@@ -12,7 +12,6 @@ public class BahasaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bahasa);
 
-        TextView title = (TextView) findViewById(R.id.activityTitleBahasa);
-        title.setText("BAHASA");
+
     }
 }

@@ -12,7 +12,6 @@ public class IpaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ipa);
 
-        TextView title = (TextView) findViewById(R.id.activityTitleIpa);
-        title.setText("IPA");
+
     }
 }

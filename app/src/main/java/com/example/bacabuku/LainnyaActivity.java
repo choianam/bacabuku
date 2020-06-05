@@ -12,7 +12,6 @@ public class LainnyaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lainnya);
 
-        TextView title = (TextView) findViewById(R.id.activityTitleLainnya);
-        title.setText("LAINNYA");
+
     }
 }

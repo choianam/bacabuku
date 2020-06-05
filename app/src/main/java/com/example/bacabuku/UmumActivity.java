@@ -12,7 +12,6 @@ public class UmumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_umum);
 
-        TextView title = (TextView) findViewById(R.id.activityTitleUmum);
-        title.setText("UMUM");
+
     }
 }
