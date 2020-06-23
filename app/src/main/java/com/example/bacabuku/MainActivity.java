@@ -35,20 +35,12 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String usernameKey = edtEmail.getText().toString();
-                String passwordKey = edtPass.getText().toString();
+                login();
 
-                if (usernameKey.equals("admin")&&passwordKey.equals("123")){
-                    Toast.makeText(getApplicationContext(), "Login Sukses !",
-                            Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, menu.class);
-                    startActivity(intent);
-                    finish();
-                }
-                else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                    builder.setMessage("Username atau Password Salah!").setNegativeButton("Retry",null).create().show();
-                }
             }
         });
-    } }
+    }
+    private void login(){
+        String url = "http://mabook.mif-project.com/LogApi/Api";
+    }
+}
