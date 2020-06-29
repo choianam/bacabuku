@@ -8,7 +8,7 @@ public class konfigurasi {
     public static final String URL_DELETE_EMP = "http://192.168.1.9/Android/pegawai/hapusPgw.php?id=";
 
     //    ip dirubah sesuai laptop masing" sesuai ip local
-    public static final String URL_LOGIN = "http://192.168.43.116/bacabuku-web-/auth/Api";
+    public static final String URL_LOGIN = "http://mabook.mif-project.com/auth/api";
 
     //Dibawah ini merupakan Kunci yang akan digunakan untuk mengirim permintaan ke Skrip PHP
     public static final String KEY_EMP_ID = "id";
