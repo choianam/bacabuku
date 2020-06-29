@@ -2,131 +2,83 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menu">
 
 
-    
-    <ScrollView
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/barang_widget">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/gambarBarang"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/namaBuku"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Nama Buku"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="230dp"
-                        android:layout_weight="2"
-                        android:layout_marginBottom="20dp">
+        <TextView
+            android:id="@+id/namaKategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="Kategori"
+            android:textSize="15sp" />
 
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/namaPenulis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Nama Penulis"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-                            <com.example.bacabuku._sliders.SliderView
-                                android:id="@+id/sliderView"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/namaPenerbit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Nama Penerbit"
+            android:textSize="17sp" />
 
-                        </FrameLayout>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_indicator"/>
-                    </RelativeLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="BACA"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_blue"
+            android:id="@+id/toBarang"/>
 
-                </TableRow>
+    </LinearLayout>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <FrameLayout android:layout_width="205dp"
-                        android:layout_height="330dp"
-                        android:background="@drawable/rectangle_barang"
-                        tools:context=".BtmmenuHome">
-
-                        <Button
-                            android:layout_width="180dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="280dp"
-                            android:text="BACA"
-                            android:textColor="#FFFFFF"
-                            android:background="@color/colorPrimary"
-                            android:id="@+id/toBarang"/>
-
-                        <ImageView
-                            android:id="@+id/gambarBarang"
-                            android:layout_width="match_parent"
-                            android:layout_height="140dp"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-                        <TextView
-                            android:id="@+id/namaBarang"
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:layout_marginTop="140dp"
-                            android:gravity="center_horizontal"
-                            android:text="Judul"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:id="@+id/namaJenis"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="185dp"
-                            android:layout_marginLeft="20dp"
-                            android:text="Kategori"
-                            android:textSize="15dp" />
-
-                        <TextView
-                            android:id="@+id/namapenulis"
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="210dp"
-                            android:layout_marginLeft="20dp"
-                            android:text="Jonny Tisman"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:id="@+id/tahunterbit"
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:layout_marginTop="245dp"
-                            android:layout_marginLeft="20dp"
-                            android:text="2011"
-                            android:textSize="17dp" />
-
-                    </FrameLayout>
-
-                </TableRow>
-
-
-            </TableLayout>
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
-
-
-    </ScrollView>
+</FrameLayout>
     
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
