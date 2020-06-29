@@ -51,7 +51,7 @@ public class AdapterHome extends BaseAdapter {
         if (convertView == null){
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.activity_menu, null, true);
+            convertView = inflater.inflate(R.layout.content_home, null, true);
 
             holder.iv = (ImageView) convertView.findViewById((R.id.gambarBarang));
             holder.tvjudul = (TextView) convertView.findViewById(R.id.namaBuku);
