@@ -1,11 +1,6 @@
 package com.example.bacabuku;
 
 public class konfigurasi {
-    public static final String URL_ADD="http://192.168.1.9/Android/pegawai/tambahPgw.php";
-    public static final String URL_GET_ALL = "http://192.168.1.9/Android/pegawai/tampilSemuaPgw.php";
-    public static final String URL_GET_EMP = "http://192.168.1.9/Android/pegawai/tampilPgw.php?id=";
-    public static final String URL_UPDATE_EMP = "http://192.168.1.9/Android/pegawai/updatePgw.php";
-    public static final String URL_DELETE_EMP = "http://192.168.1.9/Android/pegawai/hapusPgw.php?id=";
 
     //    ip dirubah sesuai laptop masing" sesuai ip local
     public static final String URL_LOGIN = "http://mabook.mif-project.com/auth/api";
@@ -23,7 +18,4 @@ public class konfigurasi {
     public static final String TAG_POSISI = "desg";
     public static final String TAG_GAJIH = "salary";
 
-    //ID karyawan
-    //emp itu singkatan dari Employee
-    public static final String EMP_ID = "emp_id";
 }
