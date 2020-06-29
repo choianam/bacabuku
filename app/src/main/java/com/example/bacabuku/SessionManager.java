@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import java.util.HashMap;
+
 class SessionManager {
     //    deklarasi sharedpref untuk menyimpan session login
     SharedPreferences sharedPreferences;
@@ -36,6 +38,21 @@ class SessionManager {
     //    fungsi untuk cek apakah user sudah login
     public boolean isLogin() {
         return sharedPreferences.getBoolean(LOGIN_STATUS, false);
+    }
+
+    public void checkLogin(){
+        if(!this.isLogin()){
+            Intent kembaliLogin = new Intent(context, MainActivity.class);
+            context.startActivity(kembaliLogin);
+            ((SudahLogin)context).finish();
+        }
+    }
+    public HashMap<String, String> getUserDetail(){
+        HashMap<String, String> user = new HashMap<>();
+        user.put(USER_ID,sharedPreferences.getString(USER_ID,null));
+        user.put(USERNAME,sharedPreferences.getString(USERNAME,null));
+        user.put(ID_AKSES,sharedPreferences.getString(ID_AKSES,null));
+        return user;
     }
 
     //    fungsi untuk logout

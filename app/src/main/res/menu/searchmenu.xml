@@ -8,10 +8,5 @@
         app:showAsAction="always|collapseActionView"
         android:icon="@android:drawable/ic_menu_search"
         android:title="Search" />
-    <item
-        android:id="@+id/profil"
-        android:title="Profil" />
-    <item
-        android:id="@+id/logout"
-        android:title="Logout" />
+
 </menu>
