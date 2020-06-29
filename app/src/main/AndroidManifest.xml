@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".LainnyaActivity"></activity>
         <activity android:name=".UmumActivity" />
+        <activity android:name=".Activity_profil" />
         <activity android:name=".BahasaActivity" />
         <activity android:name=".IpsActivity" />
         <activity android:name=".IpaActivity" />
