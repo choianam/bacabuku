@@ -6,79 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".menu">
 
-
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/barang_widget">
-
-    <LinearLayout
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:id="@+id/lv"
+        android:layout_marginTop="10dp">
 
-        <ImageView
-            android:id="@+id/gambarBarang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
+    </ListView>
 
-        <TextView
-            android:id="@+id/namaBuku"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_horizontal"
-            android:text="Nama Buku"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/namaKategori"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:text="Kategori"
-            android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/namaPenulis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Nama Penulis"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/namaPenerbit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Nama Penerbit"
-            android:textSize="17sp" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="BACA"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/white"
-            android:background="@drawable/btn_blue"
-            android:id="@+id/toBarang"/>
-
-    </LinearLayout>
-
-</FrameLayout>
     
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
