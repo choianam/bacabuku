@@ -3,13 +3,13 @@ package com.example.bacabuku.Model;
 public class ModelHome {
     private String nama_file, judul_buku, kategori_buku, pengarang_buku, penerbit_buku;
 
-    public String getNama_file(){
+    public String getNama_file() {
         return nama_file;
     }
-    public void setNama_file(String nama_file){
+    public void setNama_file(String nama_file) {
         this.nama_file = nama_file;
     }
-    public String getJudul_buku(){
+    public String getJudul_buku() {
         return judul_buku;
     }
     public void setJudul_buku(String judul_buku){

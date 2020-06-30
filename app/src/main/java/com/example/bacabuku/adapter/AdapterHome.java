@@ -53,11 +53,11 @@ public class AdapterHome extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.content_home, null, true);
 
-            holder.iv = (ImageView) convertView.findViewById((R.id.gambarBarang));
-            holder.tvjudul = (TextView) convertView.findViewById(R.id.namaBuku);
-            holder.tvcategory = (TextView) convertView.findViewById(R.id.namaKategori);
-            holder.tvpenulis = (TextView) convertView.findViewById(R.id.namaPenulis);
-            holder.tvpenerbit = (TextView) convertView.findViewById(R.id.namaPenerbit);
+            holder.iv = (ImageView) convertView.findViewById((R.id.nama_file));
+            holder.tvjudul = (TextView) convertView.findViewById(R.id.judul_buku);
+            holder.tvcategory = (TextView) convertView.findViewById(R.id.kategori_buku);
+            holder.tvpenulis = (TextView) convertView.findViewById(R.id.pengarang_buku);
+            holder.tvpenerbit = (TextView) convertView.findViewById(R.id.penerbit_buku);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder)convertView.getTag();
