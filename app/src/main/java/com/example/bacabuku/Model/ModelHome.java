@@ -3,6 +3,15 @@ package com.example.bacabuku.Model;
 public class ModelHome {
     private String nama_file, judul_buku, kategori_buku, pengarang_buku, penerbit_buku;
 
+    public ModelHome(){}
+
+    public ModelHome(String nama_file, String judul_buku, String kategori_buku, String pengarang_buku, String penerbit_buku) {
+        this.nama_file = nama_file;
+        this.judul_buku = judul_buku;
+        this.kategori_buku = kategori_buku;
+        this.pengarang_buku = pengarang_buku;
+        this.penerbit_buku = penerbit_buku;
+    }
     public String getNama_file() {
         return nama_file;
     }

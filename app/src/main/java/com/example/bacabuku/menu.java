@@ -3,6 +3,8 @@ package com.example.bacabuku;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -12,6 +14,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -19,8 +23,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.bacabuku.Api.AppController;
+import com.example.bacabuku.Api.Url;
 import com.example.bacabuku.Model.ModelHome;
 import com.example.bacabuku.adapter.AdapterHome;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,22 +37,42 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class menu extends AppCompatActivity {
 
-    private String URLstring = "http://mabook.mif-project.com/BukuApi/Api";
-    private static ProgressDialog mProgressDialog;
-    private ListView listView;
-    ArrayList<ModelHome> dataModelkArrayList;
-    private AdapterHome adapterHome;
+    View view;
+    private RequestQueue queue;
+
+
+    RecyclerView mRecyclerview;
+    RecyclerView.Adapter mAdapter;
+    RecyclerView.LayoutManager mManager;
+    List<ModelHome> mItems;
+    Button btnBaca;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        listView = findViewById(R.id.lv);
-        retrieveJSON();
+
+        queue = Volley.newRequestQueue(menu.this);
+
+        mRecyclerview = (RecyclerView)findViewById(R.id.lv);
+        btnBaca = (Button)findViewById(R.id.toBarang);
+        pd = new ProgressDialog(menu.this);
+        mItems = new ArrayList<>();
+
+        loadJson();
+
+        mManager = new LinearLayoutManager(menu.this,LinearLayoutManager.VERTICAL,false);
+        mRecyclerview.setLayoutManager(mManager);
+        mAdapter = new AdapterHome(menu.this,mItems);
+        mRecyclerview.setAdapter(mAdapter);
+
+
 
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -70,84 +97,45 @@ switch (item.getItemId()) {
 
     }
 
-    private void retrieveJSON() {
-        showSimpleProgressDialog(this, "Loading...","Fetching Json", false);
+    private void loadJson()
+    {
+        pd.setMessage("Mengambil Data");
+        pd.setCancelable(false);
+        pd.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URLstring, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("volley", ">>" + response);
-                try {
-                    JSONObject obj = new JSONObject(response);
-                    if (obj.optString("status").equals("true")) {
-                        dataModelkArrayList = new ArrayList<>();
-                        JSONArray dataArray = obj.getJSONArray("data");
-
-                        for (int i=0; i<dataArray.length(); i++) {
-                            ModelHome md = new ModelHome();
-                            JSONObject dataobj = dataArray.getJSONObject(i);
-
-                            md.setJudul_buku(dataobj.getString("judul_buku"));
-                            md.setKategori_buku(dataobj.getString("kategory_buku"));
-                            md.setPengarang_buku(dataobj.getString("pengarang_buku"));
-                            md.setPenerbit_buku(dataobj.getString("penerbit_buku"));
-                            md.setNama_file(dataobj.getString("nama_file"));
-
-                            dataModelkArrayList.add(md);
+        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.POST, Url.API_HOME,null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        pd.cancel();
+                        Log.d("volley","response : " + response.toString());
+                        for(int i = 0 ; i < response.length(); i++)
+                        {
+                            try {
+                                JSONObject data = response.getJSONObject(i);
+                                ModelHome md = new ModelHome();
+                                md.setJudul_buku(data.getString("judul_buku"));
+                                md.setKategori_buku(data.getString("kategori_buku"));
+                                md.setPengarang_buku(data.getString("pengarang_buku"));
+                                md.setPenerbit_buku(data.getString("penerbit_buku"));
+                                md.setNama_file(data.getString("nama_gambar_barang"));
+                                mItems.add(md);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
-                        setupListView();
+                        mAdapter.notifyDataSetChanged();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        },
+                },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        pd.cancel();
+                        Log.d("volley", "error : " + error.getMessage());
                     }
                 });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-    private void setupListView(){
-        removeSimpleProgressDialog();
-        adapterHome = new AdapterHome(this, dataModelkArrayList);
-        listView.setAdapter(adapterHome);
-    }
-    public static void removeSimpleProgressDialog(){
-        try {
-            if (mProgressDialog != null){
-                if (mProgressDialog.isShowing()){
-                    mProgressDialog.dismiss();
-                    mProgressDialog = null;
-                }
-            }
-        }catch (IllegalArgumentException ie){
-            ie.printStackTrace();
-        }catch (RuntimeException re){
-            re.printStackTrace();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    public static void showSimpleProgressDialog(Context context, String title, String msg, boolean isCancelable){
-        try {
-            if (mProgressDialog == null){
-                mProgressDialog = ProgressDialog.show(context, title, msg);
-                mProgressDialog.setCancelable(isCancelable);
-            }
-            if (!mProgressDialog.isShowing()){
-                mProgressDialog.show();
-            }
-        }catch (IllegalArgumentException ie){
-            ie.printStackTrace();
-        }catch (RuntimeException re){
-            re.printStackTrace();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+
+        queue.add(reqData);
     }
 
     @Override
