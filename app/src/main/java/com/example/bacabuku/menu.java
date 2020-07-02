@@ -118,7 +118,7 @@ switch (item.getItemId()) {
                                 md.setKategori_buku(data.getString("kategori_buku"));
                                 md.setPengarang_buku(data.getString("pengarang_buku"));
                                 md.setPenerbit_buku(data.getString("penerbit_buku"));
-                                md.setNama_file(data.getString("nama_gambar_barang"));
+                                md.setNama_file(data.getString("nama_file"));
                                 mItems.add(md);
                             } catch (JSONException e) {
                                 e.printStackTrace();
