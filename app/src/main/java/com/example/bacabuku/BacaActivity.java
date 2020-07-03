@@ -15,7 +15,7 @@ public class BacaActivity extends AppCompatActivity {
 
         PDFView pdfView = (PDFView) findViewById(R.id.pdfView);
 
-        pdfView.fromAsset("biologi kelas X.pdf").load();
+        pdfView.fromAsset("Biologi_Kelas_11.pdf").load();
     }
 
 }
