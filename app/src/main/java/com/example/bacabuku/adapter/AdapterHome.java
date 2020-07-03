@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -62,6 +63,7 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HolderData> {
     {
         TextView tvjudul,tvkategori,tvpengarang, tvpenerbit;
         ImageView tvgambar;
+        Button toBarang;
         ModelHome md;
 
         public  HolderData (View view)
@@ -74,7 +76,9 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HolderData> {
             tvpenerbit = (TextView) view.findViewById(R.id.penerbit_buku);
             tvgambar = (ImageView) view.findViewById(R.id.nama_file);
 
-            view.setOnClickListener(new View.OnClickListener() {
+            toBarang = (Button) view.findViewById(R.id.toBarang);
+
+            toBarang.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent update = new Intent(context, BacaActivity.class);

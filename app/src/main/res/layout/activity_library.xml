@@ -2,33 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LibraryActivity">
 
-    <TableLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:stretchColumns="1">
+        android:id="@+id/lvl"
+        android:layout_marginTop="10dp">
 
-        <TableRow
-            android:background="#22ff">
+    </androidx.recyclerview.widget.RecyclerView>
 
-            <TextView
-                android:layout_height="50dp"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:textSize="24dp"
-                android:text="Matematika Kelas X" />
-            <TextView
-                android:text="BACA | DELETE"
-                android:textSize="20dp"
-                android:gravity="right"
-                android:padding="3dip" />
-        </TableRow>
+    </LinearLayout>
 
-    </TableLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
